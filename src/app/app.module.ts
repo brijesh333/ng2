@@ -6,11 +6,13 @@ import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { CribListingComponent } from './crib-listing/crib-listing.component';
+import { CribCardComponent } from './crib-card/crib-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CribListingComponent
+    CribListingComponent,
+    CribCardComponent
   ],
   imports: [
     BrowserModule
