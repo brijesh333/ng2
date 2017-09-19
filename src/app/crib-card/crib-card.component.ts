@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
+import { Crib } from "./../crib"
 @Component({
   selector: 'app-crib-card',
   templateUrl: './crib-card.component.html',
@@ -7,10 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CribCardComponent implements OnInit {
 
-  @Input('crib') crib:any;
+  @Input('crib') crib:Crib;
   constructor() { }
 
   ngOnInit() {
+    let bedrooms=this.crib.bedrooms;
+    //let kitchens=this.crib.kitchen;    //gives error because is is  not present in Crib interface.
   }
 
 }
