@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //import { cribs } from './../data/cribs';
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/map'; //because we have implement map operaions in services
+import { CribsService } from './../services/cribs.service';
 
 @Component({
     selector: 'app-crib-listing',
@@ -12,15 +13,22 @@ export class CribListingComponent implements OnInit {
 
     cribs: Array<any>;
     error: string;
-    constructor(private http: Http) { }
+    constructor(
+        private http: Http, 
+        private cribService: CribsService
+    ) { }
 
     ngOnInit() {
-        this.http.get('/data/cribs.json')
-            .map(res => res.json())
-            .subscribe(
+        this.cribService.getAllCribs().subscribe(
             data => this.cribs = data,
-            error => this.error = error
-      );
+            error => this.error = error.statusText
+        );
+        //     this.http.get('/data/cribs.json')
+        //         .map(res => res.json())
+        //         .subscribe(
+        //         data => this.cribs = data,
+        //         error => this.error = error
+        //   );
     }
 
 }
