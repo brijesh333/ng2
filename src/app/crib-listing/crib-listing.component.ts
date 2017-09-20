@@ -14,12 +14,8 @@ export class CribListingComponent implements OnInit {
 
     cribs: Array<any>;
     error: string;
-    constructor(
-        private http: Http, 
-        private cribService: CribsService,
-        private utilService:UtilService,
-    ) { }
-
+    sortField:string='price';
+    sortDirection :String='asc';    
     sortFields:Array<string>=[
         'address',
         'area',
@@ -28,6 +24,15 @@ export class CribListingComponent implements OnInit {
         'price',
         'type'
     ];
+
+
+    constructor(
+        private http: Http, 
+        private cribService: CribsService,
+        private utilService:UtilService,
+    ) { }
+
+    
     ngOnInit() {
         this.cribService.getAllCribs()
         .subscribe(

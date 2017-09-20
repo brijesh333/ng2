@@ -14,7 +14,7 @@
                           </option>
                       </select>
                 </div>
-                <!-- <div class="col-sm-4">
+                <div class="col-sm-4">
                     <label for="sort-direction">Sort Direction</label>
                     <div>
 
@@ -27,11 +27,11 @@
                         </button>
 
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
-    <div *ngFor="let crib of cribs | sortBy:[sortField]">
+    <div *ngFor="let crib of cribs | sortBy:[sortField,sortDirection]">
         <app-crib-card [crib]=crib class="col-sm-2"></app-crib-card>
     </div>
 </div>
