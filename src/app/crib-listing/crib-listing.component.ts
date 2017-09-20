@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 //import 'rxjs/add/operator/map'; //because we have implement map operaions in services
 import { CribsService } from './../services/cribs.service';
+import { UtilService } from './../services/util.service';
 
 @Component({
     selector: 'app-crib-listing',
@@ -15,9 +16,18 @@ export class CribListingComponent implements OnInit {
     error: string;
     constructor(
         private http: Http, 
-        private cribService: CribsService
+        private cribService: CribsService,
+        private utilService:UtilService,
     ) { }
 
+    sortFields:Array<string>=[
+        'address',
+        'area',
+        'bathrooms',
+        'bedrooms',
+        'price',
+        'type'
+    ];
     ngOnInit() {
         this.cribService.getAllCribs()
         .subscribe(
