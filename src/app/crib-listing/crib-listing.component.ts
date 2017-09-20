@@ -19,7 +19,8 @@ export class CribListingComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.cribService.getAllCribs().subscribe(
+        this.cribService.getAllCribs()
+        .subscribe(
             data => this.cribs = data,
             error => this.error = error.statusText
         );
@@ -29,6 +30,11 @@ export class CribListingComponent implements OnInit {
         //         data => this.cribs = data,
         //         error => this.error = error
         //   );
+        this.cribService.newCirbSubject.subscribe(
+            //data => console.log(data)
+            //data => this.cribs.push(data) // insert data in last
+            data => this.cribs=[data,...this.cribs] //insert into the starting of list
+        )
     }
 
 }
