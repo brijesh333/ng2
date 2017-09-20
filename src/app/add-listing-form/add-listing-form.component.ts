@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddListingFormComponent implements OnInit {
 
-    //propertyTypes:Array<string>=['House','condo','Duplex'];
+    propertyTypes:Array<string>=['House','condo','Duplex'];
 
     constructor() { }
 
